@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* header */
+header {
+    text-align: center;
+    height: 20vh;
+}
+header h1 {
+    font-weight: 900;
+    line-height: 20vh;
+    color: #8bb9a3;
+}
+header h1 small {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+/* main */
+main {
+    font-size: 1.2rem;
+}
+main tr {
+    height: 7vh;
+    line-height: 7vh;
+}
+
+/* main thead */
+main thead {
+    border: none !important;
+}
+main thead tr th {
+    color: #555;
+}
+main thead tr th:nth-child(1) {
+    width: 40%;
+}
+main thead tr th:nth-child(2) {
+    width: 40%;
+}
+main thead tr th:nth-child(3) {
+    width: 20%;
+}
+
+/* main tbody */
+main tbody {
+    font-weight: 500;
+    border: none !important;
+}
+main tbody input[type=text] {
+    height: 5vh;
+    padding: 0 0.5rem;
+    border: none;
+    outline: none;
+}
+main tbody #setData:focus {
+    box-shadow: 0 0 1rem 3px #8bb9a3;
+}
+main tbody #getData::placeholder {
+    color: #999;
+}
+main tbody button {
+    height: 5vh;
+    line-height: 5vh;
+    border: none;
+    background-color: #d1e7dd;
+    width: 100%;
+}
+main tbody button:hover {
+    transform: scale(0.96);
+}
+main tbody #dataDelBtn {
+    background-color: #f8d7da;
+}
