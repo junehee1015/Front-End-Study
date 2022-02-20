@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* scrollbar */
+body::-webkit-scrollbar {
+    width: 15px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #d1e7dd;
+    border-radius: 50px;
+}
+
+/* section */
+section .viewTitle {
+    text-align: center;
+    height: 20vh;
+}
+section .viewTitle h1 {
+    font-weight: 900;
+    line-height: 20vh;
+    color: #8bb9a3;
+}
+section .viewTitle h1 small {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+
+section {
+    font-size: 1.2rem;
+}
+section #dataView {
+    float: right;
+    width: 20%;
+    height: 5vh;
+    border: none;
+    background-color: #CFF4FC;
+    margin-bottom: 1rem;
+}
+section #dataView:hover {
+    transform: scale(0.95);
+    font-size: 1.15rem;
+}
+
+/* section thead */
+section thead {
+    border: none !important;
+}
+section thead tr th {
+    color: #555;
+}
+section thead tr th:nth-child(1) {
+    width: 33.3%;
+}
+section thead tr th:nth-child(2) {
+    width: 33.3%;
+}
+section thead tr th:nth-child(3) {
+    width: 33.3%;
+}
+
+/* section tbody */
+section tbody {
+    font-weight: 500;
+    border: none !important;
+}
+
+section tbody {
+    display: none;
+}
+section .data-area {
+    display: table-row-group;
+}
+
+section tbody button {    
+    background-color: #f8d7da;
+    border: none;
+    width: 50%;
+}
+section tbody button:hover {
+    transform: scale(0.96);
+    font-size: 1.15rem;
+}
+
+/* footer */
+footer {
+    height: 50vh;
+}

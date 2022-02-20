@@ -13,47 +13,75 @@
 
 // Set Data
 const setBtn = document.querySelector('#setBtn');
-const setData = document.querySelector('#setData');
+const setKey = document.querySelector('#setKey');
+const setValue = document.querySelector('#setValue');
 
 // set button click
 setBtn.addEventListener('click', () => {
     // set input value
-    const setValue = setData.value;
+    const set_key = setKey.value;
+    const set_value = setValue.value;
 
-    if(setValue != "") {
+    if((set_key != "") && (set_value !="")) {
         // set localStorage
-        localStorage.setItem('userName', setValue);
-        console.log('localStorage에',setValue, '저장');
-    } else
-        alert('data를 입력해주세요.');
+        localStorage.setItem(set_key, set_value);
+        alert(`localStorage -> [ ${set_key} : ${set_value} ] 저장`);
+    }else
+        alert('key와 Value의 data를 입력해주세요.');
 
     // set input init
-    setData.value = "";
+    setKey.value = "";
+    setValue.value = "";
 });
 
 
 // Get Data
 const getBtn = document.querySelector('#getBtn');
-const getData = document.querySelector('#getData');
+const getKey = document.querySelector('#getKey');
+const getValue = document.querySelector('#getValue');
+
 
 getBtn.addEventListener('click', () => {
-    const getValue = localStorage.getItem('userName');
-    if(!getValue) {
-        getData.value="";
-        alert('저장된 Local Data가 없습니다.');
+    const get_key = localStorage.getItem(getKey.value);
+    if(!get_key){
+        alert('Key를 정확히 입력해주세요.');
+        getKey.value = "";
+        getValue.value = "";
     }else
-        getData.value = getValue;
+        getValue.value = get_key;
 });
 
 
 // Remove Local Data
 const dataDelBtn = document.querySelector('#dataDelBtn');
 
+// input에서 받아온 key 로 삭제하는 방법
+
+// const delKey = document.querySelector('#delKey');
+// const del_key = localStorage.key(delKey.value);
+
+// dataDelBtn.addEventListener('click', () => {
+
+//     // input의 key와 localStorage의 key가 같은지 확인
+//     if(delKey.value == del_key) {
+//         const removeData = confirm('Local Data를 삭제하시겠습니까?');
+//         if(removeData){
+//             localStorage.removeItem(delKey.value);
+//             delKey.value="";
+//         }else
+//             delKey.value="";
+//     }else{
+//         alert('삭제할 Data의 Key를 정확히 입력해주세요.');
+//         delKey.value="";
+//     }
+// });
+
+// All Delete
 dataDelBtn.addEventListener('click', () => {
-    const removeData = confirm('Local Data를 삭제하시겠습니까?');
-    
-    if(removeData) {
-        localStorage.removeItem('userName');
-        getData.value="";
+    if(localStorage.length == 0) {
+        alert('저장된 data가 없습니다.');
+    }else {
+        if(confirm('Local Data를 모두 삭제하시겠습니까?'))
+        localStorage.clear();
     }
 });

@@ -23,6 +23,18 @@ header h1 small {
 main {
     font-size: 1.2rem;
 }
+main #dataDelBtn {
+    float: right;
+    width: 20%;
+    height: 5vh;
+    border: none;
+    background-color: #f8d7da;
+    margin-bottom: 1rem;
+}
+main #dataDelBtn:hover {
+    transform: scale(0.95);
+    font-size: 1.15rem;
+}
 main tr {
     height: 7vh;
     line-height: 7vh;
@@ -56,12 +68,32 @@ main tbody input[type=text] {
     border: none;
     outline: none;
 }
-main tbody #setData:focus {
+main tbody #setKey:focus {
     box-shadow: 0 0 1rem 3px #8bb9a3;
+}
+main tbody #setValue:focus {
+    box-shadow: 0 0 1rem 3px #8bb9a3;
+}
+main tbody #getKey:focus {
+    box-shadow: 0 0 1rem 3px #8bb9a3;
+}
+main tbody #delKey:focus {
+    box-shadow: 0 0 1rem 3px #f8d7da;
+}
+
+main tbody #setKey::placeholder {
+    color: #999;
+}
+main tbody #setValue::placeholder {
+    color: #999;
 }
 main tbody #getData::placeholder {
     color: #999;
 }
+main tbody #delKey::placeholder {
+    color: #999;
+}
+
 main tbody button {
     height: 5vh;
     line-height: 5vh;
@@ -72,6 +104,6 @@ main tbody button {
 main tbody button:hover {
     transform: scale(0.96);
 }
-main tbody #dataDelBtn {
+/* main tbody #dataDelBtn {
     background-color: #f8d7da;
-}
+} */
