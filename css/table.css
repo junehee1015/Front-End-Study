@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body::-webkit-scrollbar {
+    width: 1rem;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #cff4fc;
+    border-radius: 4rem;
+}
+
+/* header */
+header {
+    height: 20vh;
+    text-align: center;
+}
+header h1 {
+    line-height: 20vh;
+}
+header h1 small {
+    font-size: 1.5rem;
+}
+
+/* main */
+main thead, main tbody {
+    border-top: none !important;
+}
+main button {
+    float: right;
+    margin-bottom: 1.5rem;
+    padding: 1rem 2rem;
+    border: none;
+    background-color: #cff4fc;
+    font-weight: 600;
+    transition-duration: 0.3s;
+}
+main button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 0.5rem #00d0ff;
+}
+main th:nth-child(1),main th:nth-child(2) {
+    width: 20%;
+}
+main th:nth-child(3),main th:nth-child(4) {
+    width: 30%;
+}
+
+/* footer */
+footer {
+    height: 20vh;
+}
