@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* header */
+header {
+    height: 20vh;
+}
+header h1 {
+    font-weight: 600;
+    line-height: 20vh;
+}
+header h1 small {
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+/* main */
+main {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+main caption {
+    font-weight: 500;
+}
+
+/* main thead */
+main thead th:nth-child(1) {
+    width: 70%;
+}
+main thead th:nth-child(2) {
+    width: 30%;
+}
+main th, main td {
+    height: 5vh;
+}
+
+/* main tbody */
+main tbody input[type=text] {
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    font-weight: 600;
+}
+main tbody button {
+    width: 60%;
+    height: 5vh;
+    border: none;
+    background-color: #6e3d3d;
+    color: #fff;
+    font-weight: 600;
+}
+main tbody button:hover {
+    transform: scale(.95);
+}
