@@ -53,7 +53,7 @@ form.addEventListener('submit', setCookie);
 
 
 // Read Cookie
-function getCookie() {
+function getCookies() {
     // local에 저장된 cookie 가져오기
     const cookies = document.cookie; // String(문자열)로 return
     
@@ -63,33 +63,44 @@ function getCookie() {
 
 
 // Delete Cookie
-// Cookie의 만료일을 현재보다 과거로 설정하여 Cookie를 만료시켜 삭제한다.
-// 삭제(만료일 수정)
+// Cookie의 만료일을 과거로 설정하여 Cookie를 만료시켜 삭제한다.
+// Cookie 생성시 option(path, domain 등)을 사용했다면 포함하여 삭제해야 한다.
 function delCookie() {
     const delCookieName = document.querySelector('#delCookie');
-    const num = document.cookie.indexOf(delCookieName.value);
     
-    const delConfirm = confirm('Cookie를 삭제하시겠습니까?');
-    if(delConfirm) {
+    function getDelCookie(name) {
+        // Cookie Name 뒤에 =이 붙는 것을 이용하여 indexof 사용시 input으로 받은 값이 존재 하는지 여부 확인 가능
+        const delName = name + '=';
+        // Cookie가 여러개일때 (name1=value1; name2=value2) 이런식으로 나뉘기 때문에 세미콜론 뒤에 공백을 추가하여 없애고 배열로 반환한다.
+        const allCookies = document.cookie.split('; ');
+        let delCookie = [];
 
-        // input에서 받아온 name이 존재하는지 여부 확인
-        if(num==-1 || num==4 || num==15 || num==26 || num==37 || num==48 || num==58 || num==69) {
-            alert('삭제할 Name을 정확히 입력해주세요.');
-            delCookieName.value = "";
-        }else{
-
-            // 만료일을 먼 과거의 날짜로 수정
-            document.cookie = `${delCookieName.value}=; expires=Sat, 01 Jan 2000 00:00:00 GMT`;
-            alert('Cookie 삭제');
-            delCookieName.value = "";
+        allCookies.forEach((value, index) => {
+            if(value.indexOf(delName) == 0) {
+                // ['name=value'] 형태의 배열을 ['name', 'value']의 형태로 반환한다.
+                // 그러면 index[0] = name / index[1] = value로 나눌 수 있다.
+                delCookie = value.split('=');
+            }
+        });
+        // 삭제할때 name이 필요하기 때문에 index[0]을 return 해준다.
+        return delCookie[0];
+    }
+    
+    if(getDelCookie(delCookieName.value) != delCookieName.value)
+        alert('Cookie Name을 정확히 입력해주세요.');
+    else{
+        if(confirm('해당 Cookie를 삭제하시겠습니까?')) {
+            // expiry date(만료일)을 과거로 수정하여 Cookie의 유효기간이 끝나도록 한다.
+            document.cookie = `${getDelCookie(delCookieName.value)}=; expires=Sat, 01 Jan 2000 00:00:00 GMT`;
+            alert('Cookie를 삭제하였습니다.');
         }
-    }else
-        delCookieName.value = "";
+    }
+    delCookieName.value = "";
 }
 
 
 // All Delete Cookie
-function allDelCookie(domain, path) {
+function allDelCookies(domain, path) {
     domain = domain || document.domain,
     path = path || '/';
     const allDelConfirm = confirm('Cookie를 모두 삭제하시겠습니까?');
