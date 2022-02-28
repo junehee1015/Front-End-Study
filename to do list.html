@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="css/to do list.css">
+    <script src="js/to do list/modal.js" defer></script>
+    <script src="js/to do list/to do list.js" defer></script>
+</head>
+<body>
+    <!-- button -->
+    <button id="modalBtn">To Do List</button>
+
+    <!-- modal -->
+    <div class="modal showModal">
+        <div id="modal_bg"></div>
+        <div id="list">
+            <a href="javascript:;" id="closeBtn"></a>
+            <h1>2022 To Do List</h1>
+            <form>
+                <input type="text" name="input_list" id="text" placeholder="What do you have planned?">
+                <input type="submit" value="save">
+            </form>
+            <ul class="to_do_list">
+                <!-- <li>
+                    <input type="text">할 일</input>
+                    <button class="editBtn">Edit</button>
+                    <button class="delBtn">Delete</button>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
