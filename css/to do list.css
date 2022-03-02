@@ -3,9 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-ul {
-    list-style: none;
-}
 a {
     text-decoration: none;
     color: #000;
@@ -130,8 +127,8 @@ body {
     cursor: pointer;
 }
 
-/* Modal ul */
-.modal #list ul::before {
+/* Modal #task */
+.modal #list #task::before {
     content: 'Tasks';
     display: inline-block;
     font-size: 2rem;
@@ -143,8 +140,13 @@ body {
     margin-bottom: 1rem;
     color: #555;
 }
+.modal #list .to_do_list {
+    transition: all 0.5s;
+}
 
-.modal #list ul li {
+/* Modal .to_do_list */
+.modal #list .to_do_list .draggable {
+    transition: all 0.5s;
     display: flex;
     border: 1px solid #0099ff;
     border-radius: 10px;
@@ -152,7 +154,7 @@ body {
     cursor: pointer;
     margin-bottom: 1rem;
 }
-.modal #list ul li div {
+.modal #list .to_do_list .draggable .ham {
     width: 5%;
     margin: 0.5rem;
     padding: 0.5rem;
@@ -162,24 +164,24 @@ body {
     background-color: #0099ff;
     border-radius: 10px;
 }
-.modal #list ul li div span {
+.modal #list .to_do_list .draggable .ham span {
     width: 100%;
     border-bottom: 3px solid #fff;
 }
 
-/* Modal ul li input */
-.modal #list ul li input[type=text] {
+/* Modal .to_do_list .draggable input */
+.modal #list .to_do_list .draggable input[type=text] {
     width: 75%;
     padding: 0.5rem;
     border: none;
     margin: 0.5rem;
 }
-.modal #list ul li input[type=text]:focus {
+.modal #list .to_do_list .draggable input[type=text]:focus {
     box-shadow: none;
 }
 
-/* Modal ul li button */
-.modal #list ul li button {
+/* Modal .to_do_list .draggable button */
+.modal #list .to_do_list .draggable button {
     width: 10%;
     cursor: pointer;
     border: none;
@@ -192,6 +194,13 @@ body {
     margin-right: 0.5rem;
     
 } 
-.modal #list ul li .delBtn {
+.modal #list #task .to_do_list .draggable .delBtn {
     background: #ff0000;
 }
+
+
+/* Drag & Drop */
+.dragging {
+    box-shadow: 0 0 1rem #0099ff;
+}
+
